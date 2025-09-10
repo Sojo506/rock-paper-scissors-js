@@ -31,7 +31,18 @@ function playRound(humanChoide, computerChoice) {
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame() {
+    while (humanScore < 5 && computerScore < 5) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
 
-playRound(humanSelection, computerSelection);
+    if (humanScore === 5) {
+        alert("Congratulations! You won the game!");
+    } else {
+        alert("Sorry! The computer won the game.");
+    }
+}
+
+playGame();
