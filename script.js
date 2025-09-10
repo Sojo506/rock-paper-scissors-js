@@ -14,3 +14,24 @@ function getHumanChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
+
+function playRound(humanChoide, computerChoice) {
+    if (humanChoide === computerChoice) {
+        alert(`It's a tie! Both chose ${humanChoide}.`);
+    } else if (
+        (humanChoide === 'rock' && computerChoice === 'scissors') ||
+        (humanChoide === 'paper' && computerChoice === 'rock') ||
+        (humanChoide === 'scissors' && computerChoice === 'paper')
+    ) {
+        humanScore++;
+        alert(`You win! ${humanChoide} beats ${computerChoice}. Score: You ${humanScore} - Computer ${computerScore}`);
+    } else {
+        computerScore++;
+        alert(`You lose! ${computerChoice} beats ${humanChoide}. Score: You ${humanScore} - Computer ${computerScore}`);
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
